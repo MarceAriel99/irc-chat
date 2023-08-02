@@ -1,103 +1,111 @@
-# 22C2-Panicked-At-Pensar-Nombre-
+<h1 align="center" style="color:black"> IRC-CHAT </h1> 
 
-## Integrantes:
+This is a Rust implementation of a multi-server IRC chat system. Some of the most important features supported are:
+* Connection and registration
+* Private messages
+* Channels
+* Channel operators / topics / private channels ...
+* File transfer between users
 
-- [Bilo Lucas](https://github.com/lucasbilo)
-- [Reil Luz Juan Ignacio](https://github.com/juanireil)
-- [Rondán Marcelo Ariel](https://github.com/MarceAriel99)
-- [Salese D'Assaro Ariana Magalí](https://github.com/ariana-salese)
+#### Screenshot
+![Screenshot](https://github.com/MarceAriel99/irc-chat/assets/60658991/af0c5507-dd40-45ea-bd50-9d79f931a9bc)
 
-La aplicacion está programada con Rust y gtk 3, ambos son necesarios para poder correrlo.
+#### This application was developed for the subject 'Taller de programación 1' in colaboration with:
+<div>
+    <a href="https://github.com/lucasbilo"> 
+      <img src="https://github.com/lucasbilo.png?size=50" width="50">
+    </a>
+    <a href="https://github.com/juanireil">
+      <img src="https://github.com/juanireil.png?size=50" width="50">
+    </a>
+    <a href="https://github.com/ariana-salese">
+      <img src="https://github.com/ariana-salese.png?size=50" width="50">
+    </a>
+</div>
 
-## Correr server
+### Languages and tools
+<div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/rust/rust-plain.svg" title="RUST" alt="Rust" width="60" height="60"/>&nbsp;
+  <img src="https://github.com/MarceAriel99/irc-chat/assets/60658991/92dd89e3-99d8-41d3-a5fc-a10df470d08e" title="GTK3" alt="Gtk3" width="60" height="60"/>&nbsp;
+</div>
 
-Para poder conectarse en múltiples computadoras, es necesario poner en el archivo de configuracion del server, en el campo del address la ip de la computadora que esta hosteando al servidor junto a su puerto en formato ip_address:port.
+(This application was developed in Rust 1.64.0)
 
-Para correr el servidor, se debe ejecutar el comando:
+## Start the server
 
-    cargo run --bin server <archivo_persistencia_server>
+    cargo run --bin server <server_persistency_file>
 
-archivo_persistencia_server es el nombre del archivo en el cuál se encuentra la información del servidor que se quiere levantar. 
-Un ejemplo de estos es server_data.txt
+server_persistency_file contains the information about the server (One of these is server_data.txt)
 
-### Archivo de persistencia del server
-#### **_SERVIDOR PRINCIPAL_**
-El servidor principal es unico y recibe conexiones de servidores secundarios. Su archivo se compone de la siguiente manera:
+#### **_MAIN SERVER_**
+The main server is unique and receives connections from secondary servers.
+The persistency file can contain the following lines:
 
-#### Si es la informacion de configuracion: 
+#### Config information: 
 ```
     S;server_name;address;main_server;users_file_path
 ```
-
-El users_file_path hace referencia al archivo en el cual se guarda la informacion de los usuarios registrados
-
-Por ejemplo:
-    
+Example:
 ```
     S;rust;127.0.0.1:3000;none;saved_files/users.txt
 ```
 
-#### Si es la informacion de un administrador del server: 
+#### Server admin information: 
 ```
     A;password;nickname
 ```
-
-Por ejemplo:
-    
+Example:
 ```
     A;password123;juanireil
 ```
 
-server_data.txt es el nombre del archivo de persistencia del servidor principal creado por nostros.
+#### **_SECONDARY SERVER_**
+The secondary server is the one that connects to the primary server.
 
-En caso de querer levantar un servidor propio, se debe crear un nuevo archivo con el mismo formato y pasarselo.
+You must provide the ip, port and the correct name of the main server so it can start working correctly.
+In the repository there are different secondary server files (eg server_data_sec_1, server_data_sec_2).
+The persistency file can contain the following lines:
 
-#### **_SERVIDOR SECUNDARIO_**
-El servidor secundario es el que se conecta al servidor principal. 
-Se debe poner la ip, puerto y el nombre correcto del servidor principal para que este pueda arrancar a funcionar correctamente.
-En el repositorio se encuentran distintos archivos de servidores secundarios (ej. server_data_sec_1, server_data_sec_2). 
-Para el servidor secundario, cada linea de su archivo se compone de la siguiente manera:
-
-#### Si es la informacion de configuracion:
+#### Config information:
 
     S;server_name;server_addres;main_server_name;main_server_addres
 
-Por ejemplo:
+Example:
 
     S;secondary_server_1;127.0.0.1:3001;main_server;127.0.0.1:3000
     
-#### Si es la informacion del administrador del servidor: 
+#### Server admin information: 
 
-Es igual que para el servidor principal
+Same as main server
 
-### Persistencia de usuarios
-users.txt contiene la información de todos los usuarios registrados. Poseé la siguiente información: 
+### Registered users persistency
+*users.txt* contains the information of all registered users.
+The file can contain the following lines:
 
 ```
     U;nickname;adress;username;real_name;server_name;password
 ```
-
-Por ejemplo:
+Example:
     
 ```
     U;juanireil;127.0.0.1;juani;Juan Reil;rust;password123
 ```
 
-## Correr Client
-
-Para correr el cliente, el comando es 
+## Start Client
     
     cargo run --bin client
 
-Allí mostrará una primera ventana en la que se pide el nombre del servidor con el cuál se conectará, la ip (la que hayan puesto en el archivo de configuracion) y el puerto. Si estos datos son correctos se conectarán y procederán a iniciar sesion o registrarse.
-## Correr tests
-Si se desea correr los tests el comando a ejecutar es:
-    
+A first window will appear, in which the name of the server, the IP, and the port are requested. If these fields are correct, it will connect and proceed to log in or register.
+
+## Run tests  
     cargo test
 
-## Generar documentacion
-
-El código se encuentra documentado según los estandares de Rust presentes en su manual.
-Para poder generar y visualizar la documentacion, se debe usar el comando
+## Generate documentation
+The code is documented according to the Rust standards present in its manual.
+In order to generate and view the documentation, you must use the command:
 
     cargo doc --open
+
+## Showcase
+https://github.com/MarceAriel99/irc-chat/assets/60658991/a11a5f79-a900-48af-93d4-1d16af39c025
+
