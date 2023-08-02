@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <object class="GtkImage" id="image1">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="icon_size">2</property>
+    <property name="icon_name">document-open</property>
+  </object>
+  <object class="GtkApplicationWindow" id="window">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Connect</property>
+    <property name="window_position">center</property>
+    <property name="default_width">400</property>
+    <property name="default_height">400</property>
+    <child>
+      <object class="GtkBox" id="connect_box">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
+        <property name="border_width">20</property>
+        <property name="baseline_position">center</property>
+        <child>
+          <object class="GtkLabel" id="label_server_name">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Server Name</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry_server_name">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="placeholder_text" translatable="yes">Type the server name here</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label_server_ip">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Server IP</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry_server_ip">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="placeholder_text" translatable="yes">Type the server IP here</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label_port">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Port</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry_port">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="placeholder_text" translatable="yes">Type the Port here</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id = "label_connection_error">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes"></property>
+            <attributes>
+                <attribute name="foreground" value="red"/>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="connect_button">
+            <property name="label" translatable="yes">Connect to server</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="expand">False</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

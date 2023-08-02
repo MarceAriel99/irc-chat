@@ -1,0 +1,3 @@
+U;juanireil;127.0.0.1;juani;Juan Reil;test_server;password123
+U;ari;127.0.0.1;arisalese;Ariana Salese;test_server;password123
+U;marce;127.0.0.1;marce;Marcelo Rondan;secondary_server;password123

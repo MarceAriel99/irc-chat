@@ -1,0 +1,6 @@
+U;juanireil;127.0.0.1;juani;Juan Reil;main_server;pass
+U;ari;127.0.0.1;arisalese;Ariana Salese;main_server;pass
+U;marce;127.0.0.1;marce;Marcelo Rondan;main_server;pass
+U;zo;127.0.0.1;zo;Zoe Lotito;secondary_server_1;pass
+U;lucas;127.0.0.1;lu;Lucas Bilo;main_server;pass
+U;pepe;127.0.0.1;p;Pepe Lopez;secondary_server_2;pass

@@ -1,0 +1,4 @@
+U;juanireil;127.0.0.1;juani;Juan Reil;main_server;password123
+U;ari;127.0.0.1;arisalese;Ariana Salese;main_server;password123
+U;marce;127.0.0.1;marce;Marcelo Rondan;secondary_server_1;password123
+U;lucas;127.0.0.1;lu;Lucas Bilo;main_server;password123

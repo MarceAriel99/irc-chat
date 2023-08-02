@@ -1,0 +1,2 @@
+S;secondary_server_2;127.0.0.1:3002;main_server;127.0.0.1:3000
+A;contrasena;juanireil
